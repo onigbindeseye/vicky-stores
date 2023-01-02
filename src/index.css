@@ -15,7 +15,8 @@ hr {
   width: 80%;
 }
 a {
-  color: #fff;
+  color: #000;
+  text-decoration: none;
 }
 button {
   background: #4ca1a3;

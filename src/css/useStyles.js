@@ -13,14 +13,15 @@ const useStyles = makeStyles(() => ({
     top: "0",
     zIndex: "1",
     boxShadow: "0 2px 5px 0 rgba(0, 0, 0, 0.16)",
+    paddingBottom: "1%",
   },
   headerLinks: {
-    color: "#4ca1a3",
+    color: "#C69749",
     textDecoration: "none",
     width: "20%",
   },
   searchbar: {
-    width: "50%",
+    width: "20%",
   },
   textfield: {
     width: "100%",
@@ -34,6 +35,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "1%",
+    width: "30%",
   },
   buttons: {
     textDecoration: "none",
@@ -83,7 +85,7 @@ const useStyles = makeStyles(() => ({
     fontSize: "0.6rem",
   },
   productContainer: {
-    margin: "2% 0%",
+    margin: "3% 0%",
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
@@ -124,12 +126,12 @@ const useStyles = makeStyles(() => ({
     width: "20%",
   },
   productItems: {
-    width: "20%",
+    width: "25%",
     padding: "2%",
   },
   productItemsImg: {
-    width: "50%",
-    height: "20vh",
+    width: "60%",
+    height: "25vh",
   },
   checkoutSection: {
     color: "#000",
@@ -180,10 +182,10 @@ const useStyles = makeStyles(() => ({
     margin: "0 auto",
     marginTop: "32px",
     padding: "24px",
-    backgroundColor: "#4ca1a3",
+    backgroundColor: "#735F32",
   },
   footer: {
-    backgroundColor: "#4ca1a3",
+    backgroundColor: "#735F32",
     color: "#fff",
   },
   footerContainer: {
@@ -204,14 +206,15 @@ const useStyles = makeStyles(() => ({
     paddingTop: "2%",
     paddingBottom: "4%",
     textDecoration: "none",
+    fontSize: "0.8rem",
   },
   footerSocials: {
     display: "flex",
     justifyContent: "space-between",
     flexWrap: "wrap",
-    width: "60%",
-    padding: "2% 0",
-    margin: "14% 14%",
+    width: "75%",
+    padding: "1% 0",
+    margin: "5% 14%",
     cursor: "pointer",
   },
   footerCopyright: {
