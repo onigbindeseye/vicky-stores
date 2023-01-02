@@ -117,7 +117,7 @@ const useStyles = makeStyles(() => ({
     height: "10vh",
   },
   productTitle: {
-    width: "60%",
+    width: "50%",
   },
   productPrice: {
     width: "20%",
@@ -195,7 +195,7 @@ const useStyles = makeStyles(() => ({
     flexWrap: "wrap",
   },
   footerItems: {
-    width: "23%",
+    width: "20%",
     padding: "2% 2%",
     marginTop: "2%",
   },

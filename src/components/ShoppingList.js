@@ -1,77 +1,89 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import Header from "./Header"
-import fashion2 from "../images/fashion2.jpeg"
-import fashion from "../images/fashion.jpeg"
-import { Button, Typography, Box } from "@mui/material"
-import useStyles from "../css/useStyles"
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Typography, Box } from "@mui/material";
+import useStyles from "../css/useStyles";
+import Container from "../common/Container";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import Header from "./Header";
+import Banner from "./Banner";
+import NewArrivals from "./NewArrivals";
+import Discount from "./Discount";
 
 const ShoppingList = ({ addToCart, cart }) => {
-  const [products, setProducts] = useState([])
-  const [searchProducts, setSearchProducts] = useState("")
+  const [products, setProducts] = useState([]);
+  const [searchProducts, setSearchProducts] = useState("");
 
-  const classes = useStyles()
+  const classes = useStyles();
 
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products/")
       .then((res) => {
-        setProducts(res.data)
+        setProducts(res.data);
       })
       .catch((err) => {
-        console.log(err)
-      })
-  })
+        console.log(err);
+      });
+  });
 
   const filteredProduct = products.filter((shopping) => {
     return shopping.category
       .toLowerCase()
-      .includes(searchProducts.toLowerCase())
-  })
+      .includes(searchProducts.toLowerCase());
+  });
 
   const handleSearch = (e) => {
-    setSearchProducts(e.target.value)
-  }
+    setSearchProducts(e.target.value);
+  };
 
   return (
     <Box>
-      <Box className={classes.banner}>
-        <Box className={classes.bannerText}>
-          <Typography variant='h2' fontWeight='bold' color='#fff'>
-            Feel Your Swag!
-          </Typography>
-          <Typography color='#fff'>No. 1 online store in Nigeria.</Typography>
-        </Box>
-        <Box className={classes.bannerImgContainer}>
-          <img
-            src={fashion2}
-            alt='banner_image'
-            className={classes.bannerImg}
-          />
-        </Box>
-        <img src={fashion} alt='banner_image2' className={classes.bannerImg2} />
-      </Box>
+      <Banner />
       <Box>
         <Header handleSearch={handleSearch} cart={cart} />
-        <Box className={classes.productContainer}>
-          {filteredProduct.map((product, id) => (
-            <Box key={id} className={classes.productItems}>
-              <img
-                src={product.image}
-                alt='product'
-                className={classes.productItemsImg}
-              />
-              <Typography variant='subtitle2'> {product.title}</Typography>
-              <Typography variant='h6'>&#8358;{product.price}</Typography>
-              <Button variant='contained' onClick={() => addToCart(product)}>
-                Add To Cart
-              </Button>
-            </Box>
-          ))}
-        </Box>
+        <Container>
+          <NewArrivals />
+          <Typography
+            variant="h6"
+            fontWeight={700}
+            textAlign="left"
+            paddingTop="4%"
+          >
+            {" "}
+            Featured Products
+          </Typography>
+          <Box className={classes.productContainer}>
+            {filteredProduct.map((product, id) => (
+              <Box key={id} className={classes.productItems}>
+                <img
+                  src={product.image}
+                  alt="product"
+                  className={classes.productItemsImg}
+                />
+                <Typography variant="subtitle2"> {product.title}</Typography>
+                <Box
+                  display="flex"
+                  justifyContent={"space-between"}
+                  width={"35%"}
+                  alignItems="center"
+                  paddingLeft={'3%'}
+                >
+                  <Typography variant="caption">&#8358;{product.price}</Typography>
+                  <Box>
+                    <AddShoppingCartIcon
+                      onClick={() => addToCart(product)}
+                      sx={{ color: "#C69749", width: 26, height: 26, cursor:"pointer"}}
+                    />
+                  </Box>
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        </Container>
+        <Discount/>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default ShoppingList
+export default ShoppingList;
