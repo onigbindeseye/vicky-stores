@@ -1,6 +1,7 @@
 import React, { useState } from "react"
+import { styled } from "@mui/material/styles";
 import useForm from "../hooks/useForm"
-import { Typography, Box, TextField, Grid, InputLabel } from "@mui/material"
+import { Typography, Box, TextField, Grid, InputLabel, Button } from "@mui/material"
 import ShoppingCartCheckoutRounded from "@mui/icons-material/ShoppingCartCheckoutRounded"
 import useStyles from "../css/useStyles"
 
@@ -24,10 +25,24 @@ const CheckoutForm = () => {
     setShowSuccessMessage(true)
   }
 
+  const ColorButton = styled(Button)(() => ({
+    color: "#fff",
+    width: 215,
+    height: 45,
+    fontWeight: 600,
+    fontSize: "16px",
+    textTransform: "capitalize",
+    backgroundColor: "#735F32",
+    "&:hover": {
+      color: "#fff",
+      backgroundColor: "#C69749",
+    },
+  }));
+
   return (
     <Box>
       <form onSubmit={handleSubmit} className={classes.form}>
-        <Typography variant='h3' color='#4ca1a3'>
+        <Typography variant='h3' color='#000'>
           Checkout Form
         </Typography>
         <Grid item xs={12} className={classes.field}>
@@ -114,9 +129,9 @@ const CheckoutForm = () => {
             onChange={handleChanges}
           />
         </Grid>
-        <button variant='contained' startIcon={<ShoppingCartCheckoutRounded />}>
+        <ColorButton variant='contained' startIcon={<ShoppingCartCheckoutRounded />}>
           Checkout
-        </button>
+        </ColorButton>
       </form>
 
       {showSuccessMessage && (
