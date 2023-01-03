@@ -97,7 +97,8 @@ const useStyles = makeStyles(() => ({
   cartHeader: {
     textAlign: "left",
     paddingLeft: "2%",
-    color: "#4ca1a3",
+    color: "#000",
+    paddingBottom: "2%",
   },
   cartContainer: {
     display: "flex",
