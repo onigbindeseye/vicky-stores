@@ -2,13 +2,10 @@ import * as React from "react";
 import axios from "axios";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import useStyles from "../css/useStyles";
 import fashion from "../images/fashion.jpeg";
 
 function NewArrivals() {
   const [category, setCategory] = React.useState([]);
-
-  const classes = useStyles();
 
   React.useEffect(() => {
     axios
@@ -32,13 +29,25 @@ function NewArrivals() {
         >
           New Arrivals
         </Typography>
-        <Box className={classes.productContainer}>
+        <Box
+          margin={"3% 0%"}
+          width={"100%"}
+          display={"flex"}
+          justifyContent={"space-between"}
+          flexWrap={"wrap"}
+        >
           {category.map((product, id) => (
-            <Box key={id} className={classes.productItems}>
-              <img
+            <Box key={id} width={{ xs: "100%", sm: "25%" }} padding={"2%"}>
+              <Box
+                component="img"
+                height={{ xs: "35vh", sm: "25vh" }}
+                sx={{
+                  position: "relative",
+                  overflow: "hidden",
+                  width: "100%",
+                }}
                 src={product.image}
-                alt="product"
-                className={classes.productItemsImg}
+                alt={"product"}
               />
               <Typography variant="subtitle2"> {product.title}</Typography>
             </Box>
@@ -48,6 +57,7 @@ function NewArrivals() {
       <Box
         display={"flex"}
         justifyContent="space-between"
+        flexWrap={"wrap"}
         width="100%"
         alignItems="center"
         margin="3% 0%"

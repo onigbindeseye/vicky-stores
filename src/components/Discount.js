@@ -28,9 +28,10 @@ function Discount() {
         justifyContent="space-between"
         width="100%"
         alignItems="center"
+        flexWrap={"wrap"}
       >
         <Box width={{ xs: "100%", sm: "50%" }}>
-          <img src={fashion} alt="product"  height={660} width="100%"/>
+          <img src={fashion} alt="product" height={660} width="100%" />
         </Box>
         <Box
           padding={"15.8% 7%"}
@@ -56,7 +57,12 @@ function Discount() {
             Only those who hear from us get the best deals. Sign up for our
             newsletter and get 15% off your first purchase.
           </Typography>
-          <Box display="flex" justifyContent="space-between" width="90%" alignItems={'center'}>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            width="90%"
+            alignItems={"center"}
+          >
             <TextField
               fullWidth
               type="text"
