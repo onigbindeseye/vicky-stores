@@ -17,11 +17,11 @@ function Banner() {
     <Box style={styles.paperContainer}>
       <Box
         padding={"3%"}
-        width={"30%"}
+        width={{ xs: "75%", sm: "30%" }}
         backgroundColor={"#fff"}
         position={"absolute"}
-        top={{ xs: "55%", sm: "35%" }}
-        marginLeft={{ xs: "0%", sm: "7%" }}
+        top={{ xs: "35%", sm: "35%" }}
+        marginLeft={{ xs: "4%", sm: "7%" }}
       >
         <Typography
           variant="h4"
