@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Typography, Box } from "@mui/material";
-import useStyles from "../css/useStyles";
 import Container from "../common/Container";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Header from "./Header";
@@ -12,8 +11,6 @@ import Discount from "./Discount";
 const ShoppingList = ({ addToCart, cart }) => {
   const [products, setProducts] = useState([]);
   const [searchProducts, setSearchProducts] = useState("");
-
-  const classes = useStyles();
 
   useEffect(() => {
     axios
@@ -52,13 +49,25 @@ const ShoppingList = ({ addToCart, cart }) => {
             {" "}
             Featured Products
           </Typography>
-          <Box className={classes.productContainer}>
+          <Box
+            margin={"3% 0%"}
+            width={"100%"}
+            display={"flex"}
+            justifyContent={"space-between"}
+            flexWrap={"wrap"}
+          >
             {filteredProduct.map((product, id) => (
-              <Box key={id} className={classes.productItems}>
-                <img
+              <Box key={id} width={{ xs: "100%", sm: "25%" }} padding={"2%"}>
+                <Box
+                  component="img"
+                  height={{ xs: "35vh", sm: "28vh" }}
+                  sx={{
+                    position: "relative",
+                    overflow: "hidden",
+                    width: "100%",
+                  }}
                   src={product.image}
-                  alt="product"
-                  className={classes.productItemsImg}
+                  alt={"product"}
                 />
                 <Typography variant="subtitle2"> {product.title}</Typography>
                 <Box
@@ -66,13 +75,20 @@ const ShoppingList = ({ addToCart, cart }) => {
                   justifyContent={"space-between"}
                   width={"35%"}
                   alignItems="center"
-                  paddingLeft={'3%'}
+                  paddingLeft={"3%"}
                 >
-                  <Typography variant="caption">&#8358;{product.price}</Typography>
+                  <Typography variant="body2">
+                    &#8358;{product.price}
+                  </Typography>
                   <Box>
                     <AddShoppingCartIcon
                       onClick={() => addToCart(product)}
-                      sx={{ color: "#C69749", width: 26, height: 26, cursor:"pointer"}}
+                      sx={{
+                        color: "#C69749",
+                        width: 26,
+                        height: 26,
+                        cursor: "pointer",
+                      }}
                     />
                   </Box>
                 </Box>
@@ -80,7 +96,7 @@ const ShoppingList = ({ addToCart, cart }) => {
             ))}
           </Box>
         </Container>
-        <Discount/>
+        <Discount />
       </Box>
     </Box>
   );

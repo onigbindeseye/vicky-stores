@@ -40,7 +40,7 @@ function NewArrivals() {
             <Box key={id} width={{ xs: "100%", sm: "25%" }} padding={"2%"}>
               <Box
                 component="img"
-                height={{ xs: "35vh", sm: "25vh" }}
+                height={{ xs: "35vh", sm: "28vh" }}
                 sx={{
                   position: "relative",
                   overflow: "hidden",
@@ -63,7 +63,7 @@ function NewArrivals() {
         margin="3% 0%"
       >
         <Box
-          padding={"15.8% 5%"}
+          padding={"15.1% 5%"}
           width={{ xs: "100%", sm: "50%" }}
           height={"100%"}
           backgroundColor="#735F32"
@@ -98,7 +98,7 @@ function NewArrivals() {
             trust we would deliver what you order in good time.
           </Typography>
         </Box>
-        <Box>
+        <Box width={{ xs: "100%", sm: "50%" }}>
           <img src={fashion} alt="product" />
         </Box>
       </Box>
