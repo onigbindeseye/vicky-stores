@@ -40,8 +40,8 @@ function NewArrivals() {
             <Box key={id} width={{ xs: "100%", sm: "25%" }} padding={"2%"}>
               <Box
                 component="img"
-                height={{ xs: "25vh", sm: "28vh" }}
-                width={{ xs: "60%", sm: "100%" }}
+                height={{ xs: "25vh", sm: "25vh" }}
+                width={{ xs: "60%", sm: "75%" }}
                 sx={{
                   position: "relative",
                   overflow: "hidden",
